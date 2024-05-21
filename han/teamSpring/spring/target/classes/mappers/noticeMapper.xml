@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC 
 "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.spring.mapper.NoticeMapper">
+<mapper namespace="notice">
 	 <select id="getNoticeList" resultType="com.spring.dto.Notice">
     SELECT * FROM notice
   </select>
@@ -11,10 +11,10 @@
     SELECT * FROM notice WHERE bno = #{bno}
   </select>
 
-  <insert id="insertNotice" parameterType="com.spring.dto.Notice">
-    INSERT INTO notice (title, content, author, vcnt, resdate)
-    VALUES (#{title}, #{content}, #{author}, #{vcnt}, #{resdate})
-  </insert>
+<insert id="insertNotice" parameterType="com.spring.dto.Notice">
+    INSERT INTO notice (bno, title, content, author, visited, resdate) VALUES (notice_seq.NEXTVAL, #{title}, #{content}, #{author}, #{visited}, #{resdate})
+</insert>
+
 
   <update id="updateNotice" parameterType="com.spring.dto.Notice">
     UPDATE notice

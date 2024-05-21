@@ -1,5 +1,7 @@
 package com.spring.dto;
 
+import java.sql.Timestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +15,7 @@ public class Qna {
 	private int parno;
 	private String title;
 	private String content;
-	private String resdate;
+	private Timestamp resdate; // 변경된 부분
 	private int visited;
 	private String aid;
 }

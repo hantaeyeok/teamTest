@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${path}/resources/css/tourpage2.css">
 </head>
 <body>
-    <%@ include file="../header.jsp" %>
+   <%@ include file="/WEB-INF/views/header.jsp" %> 
     <main id="contents" class="clr-fix">
         <figure id="vs">
             <img class="backimg" src="${path}/resources/img/back02.jpg" alt="배경이미지">
@@ -62,66 +62,8 @@
                 </main>
             </div>
         </section>
-        <section class="page" id="page2">
-            <div class="page_wrap">
-                <section id="pattern" class="pattern">
-                    <ul class="tourpage2grid">
-                        <li>
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back01.jpg" alt="back01"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back02.jpg" alt="back02"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back03.jpg" alt="back03"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back04.jpg" alt="back04"></a>
-                            </div>
-                        </li>
-                        <li class="wide">
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back05.jpg" alt="back05"></a>
-                            </div>
-                        </li>
-                        <li class="wide">
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back01.jpg" alt="back01"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back02.jpg" alt="back02"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back03.jpg" alt="back03"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back04.jpg" alt="back04"></a>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="#"><img src="${path}/resources/img/back04.jpg" alt="back05"></a>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-        </section>
     </main>
-    <%@ include file="../footer.jsp" %>
+   <%@ include file="/WEB-INF/views/footer.jsp" %>   
 </body>
 </html>
 

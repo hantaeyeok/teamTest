@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+.material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 30; float: right;}
+
+      /*공통*/
+      * { margin: 0; padding: 0; }
+        body { width:100%; height: auto; } 
+        ul {list-style:none;}
+        a{text-decoration: none;}
+      /* header  공통*/
+      #hd { width: 100%; height: auto; position:relative; border: 1px solid #333; background-color: rgba(99, 96, 53, 0.014);}
+      .banner { height: 100%; width: auto;}
+      .hd_wrap { clear:both; width: 100%; margin: 0 auto; }
+      #gnb {clear: both; width: 100%; position: absolute; z-index: 111;  }
+      #gnb > .menu > li  { float:left; width: 14.28571428571429%;  text-align: center; } 
+      #gnb a.dp1 { background-color:rgba(16, 29, 99, 0.2); display:block; line-height: 80px; height: 75px;  color:#fff;} 
+
+      #gnb li:hover a.dp1 {background-color: rgba(238, 255, 0, 0.13);}
+      #gnb .sub {display: none; line-height: 50px; background-color: rgba(9, 5, 31, 0.562);}
+      #gnb:hover .menu .sub {display: block;}
+      #gnb .menu li:hover .sub {background-color: #fff; }
+	  #gnb a.dp2 {color: white; font-weight: 300px;} 
+	  #gnb .menu li:hover a.dp2 {color: black; font-weight: 500px;}
+
+      #gnb2 {display: none; }
+      #gnb2 {clear: both; width: 100%; position: fixed; z-index: 111;}
+      #gnb2 > .menu > li  { float:left; width: 14.28571428571429%;  text-align: center; } 
+      #gnb2 a.dp1 { background-color:#fff; display:block; line-height: 80px; height: 75px;  color:black;} 
+      #gnb2 a.dp2 { color:black;} 
+	
+      #gnb2 li:hover a.dp1 {background-color: rgba(0, 255, 255, 0.13);}
+      #gnb2 .sub {display: none; line-height: 50px; background-color: rgba(9, 5, 31, 0.562); color: #000;}
+      #gnb2:hover .menu .sub {display: block;}
+      #gnb2 .menu li:hover .sub {background-color: #fff; }
+ 
+

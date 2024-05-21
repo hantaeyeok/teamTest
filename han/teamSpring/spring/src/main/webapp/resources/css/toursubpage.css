@@ -8,31 +8,6 @@ a { text-decoration: none;}
 .wrap { position:relative; }
 ul {list-style: none;}
 
-/* header */
-.hd_wrap {clear: both; width: 100%; position: relative;}
-.banner {width: auto; height: 100%;}
-#gnb {clear: both; width: 100%; position: absolute; z-index: 111;}
-#gnb > .menu > li  { float:left; width: 14.28571428571429%;  text-align: center; } 
-#gnb a.dp1 { background-color:rgba(16, 29, 99, 0.2); display:block; line-height: 50px; height: 50px;  color:#fff;} 
-#gnb a.dp2 {color: white; font-weight: 300px;} 
-
-#gnb .sub {display: none; line-height: 50px; background-color: rgba(9, 5, 31, 0.562);}
-#gnb:hover .menu .sub {display: block;}
-#gnb .menu li:hover .sub {background-color: #fff; }
-#gnb .menu li:hover a.dp2 {color: black; font-weight: 500px;}
-
-
-
-#gnb2 {display: none; }
-#gnb2 {clear: both; width: 100%; position: fixed; z-index: 111;}
-#gnb2 > .menu > li  { float:left; width: 14.28571428571429%;  text-align: center; } 
-#gnb2 a.dp1 { background-color:#fff; display:block; line-height: 50px; height: 50px;  color:black;} 
-
-#gnb2 li:hover a.dp1 {background-color: rgba(0, 255, 255, 0.13);}
-#gnb2 .sub {display: none;}
-#gnb2:hover .menu .sub {display: block;}
-#gnb2 .menu li:hover .sub {background-color: #ccc;}
-
 /* contents */
 #contents { width: 100%;}
 .page { clear:both; width: 100%; height: auto; margin: 0 auto;}
@@ -65,7 +40,6 @@ ul {list-style: none;}
 #festivalinfo {width: 100%; height: 500px;}
 .mySlides {width: 100%; height: 100%;}
 
-
 /*mapdiv */
 .mapdiv {width: 800px; height: 600px; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;}
 
@@ -74,22 +48,3 @@ ul {list-style: none;}
  text-align: left; line-height: 50px;
 }
 
-/* footer */
-#ft a{font-family: "Nanum Gothic", sans-serif; font-weight:500 ;}
-#ft p{font-family: "Nanum Gothic", sans-serif; font-size: 13px; }
-
-
-#ft{ width:100%; height: auto; background-color: #1F1E2C; }
-.fc_wrap {position: relative;  width: 1290px; height: 180px;  margin : auto;  }
-.logo{position: absolute;  top:-20px; width:200px; height: 150px; }
-
-.foot_menu {width:1000px; height:auto;   margin: 0 auto; }
-.foot_menu ul{display: flex; margin-left: 100px; margin-top: 35px; }
-.foot_menu li{padding-left: 30px;}
-.foot_menu a{color: white;}
-
-
-.copyright{width: auto; margin-top: 70px;  height: auto;}
-.copyright p{color:#fff; padding-left: 270px;}
-
-.drop{position: absolute; right: 20px; bottom: 70px;  }

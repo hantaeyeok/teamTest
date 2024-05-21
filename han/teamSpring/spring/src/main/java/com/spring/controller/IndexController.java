@@ -21,6 +21,10 @@ public class IndexController {
 		return "home";
 	}
 	
+	@RequestMapping("home.do")
+	public String home1(Locale locale, Model model) {
+		return "home";
+	}
 	
 	
 }

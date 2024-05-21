@@ -1,5 +1,8 @@
 package com.spring.dto;
 
+
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +15,6 @@ public class Notice {
 	private String title;
 	private String content;
 	private String author;
-	private int vcnt;
+	private int visited;
 	private String resdate;
 }

@@ -10,25 +10,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
-    <style>
+        <style>
         * { margin: 0; padding: 0; }
         body { width:100%; height: auto; } 
-        header { width: 1290px; height: 600px; }
-        .join_contents { width: 1290px; height: auto; margin: 0 auto; border: 1px solid #333; }
-        .join_wrap { width: 800px; height: 1300px; margin: 2rem auto; border: 1px solid red; }
-        .input { width: 400px; height: auto; margin: 0px auto; margin-top: 3rem; position: relative; }
-        .join_wrap h3 { color: grey; position: absolute; top: -1.5rem; left: 0; }
-        .input input[type="text"], .input input[type="password"] { width: 350px; height: 40px; border: 1px solid gray; border-radius: 3px; margin-top: 1rem; padding-left: 1rem; }
-        .input .usergender { width: 364px; height: 40px; border: 1px solid gray; border-radius: 3px; margin-top: 1rem; padding-left: 1rem; color: gray; }
-        .usermonth, .userday { width: 118px; height: 42px; border: 1px solid gray; border-radius: 3px; margin-top: 1rem; padding-left: 1rem; color: gray; }
-        .input.birth input { width: 100px; }
-        .input.birth input:last-child { margin-right: 0; }
-        .input input[type="button"] { width: 150px; height: 40px; position: absolute; top: 16px; right: -130px; }
+        .headerimg{width: 1930px; height: 600px; background-image:url(${path}/resources/img/login.png);
+        margin: 0px auto;
+        background-size: cover; /* Ensure the image covers the entire header */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent the image from repeating */}
+        .join_contents{width: 1290px; height: auto; margin: 0 auto; }
+        .join_wrap{width: 800px; height: 1050px; margin: 2rem auto; }
+        .join_wrap h1{margin-top: 2rem; text-align: center;}
+        .input {width: 400px; height: auto; margin: 0px auto; margin-top: 3rem; position: relative;} /* 기존 너비 수정 */
+        .join_wrap h3 { color: grey; position: absolute; top: -1.5rem; left: 0; } /* h3 위치 조정 */
+        .input input[type="text"] { width: 350px; /* 너비 조절 */height: 40px; /* 높이 조절 */ border: 1px solid gray; border-radius: 3px;
+        margin-top: 1rem; padding-left: 1rem;} 
+        .input .usergender{ width: 364px; /* 너비 조절 */height: 40px; /* 높이 조절 */ border: 1px solid gray; border-radius: 3px;
+        margin-top: 1rem; padding-left: 1rem; color: gray;} 
+
+        .usermonth,.userday {width:118px ; height: 42px; border: 1px solid gray; border-radius: 3px;
+        margin-top: 1rem; padding-left:1rem; color: gray;}
+        .input.birth input { width: 100px;} /* 생년월일 부분 너비 조절 */
+        .input.birth input:last-child { margin-right: 0; } /* 마지막 입력 박스에는 마진 없도록 설정 */
+
+       .input input[type="button"]{width: 150px; height: 40px; position: absolute; top: 16px; right: -130px; }
+       .endbtn{position: relative;}
+       .endbtn .button1 {width: 150px; height: 40px; position: absolute; left: 200px; top: 40px }  
+       .endbtn .button2 {width: 150px; height: 40px; position: absolute; left: 400px; top:40px}   
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <header></header>
+    <header>
+    <%@ include file="/WEB-INF/views/header.jsp" %> 
+    </header>
+    <div class="headerimg"></div>
     <div class="join_contents">
         <div class="join_wrap">
             <form name="joinform" id="joinform" action="${path}/member/joinPro.do" method="post" onsubmit="return joinCheck(this)">
@@ -202,5 +218,6 @@
             return true;
         }
     </script>
+    <%@ include file="/WEB-INF/views/footer.jsp" %> 
 </body>
 </html>

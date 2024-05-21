@@ -35,8 +35,8 @@ public class MemberDAOImpl implements MemberDAO {
     }
 
     @Override
-    public void changePw(Member member) {
-        sqlSession.update("member.changePw", member);
+    public void changePw(String pw) {
+        sqlSession.update("member.changePw", pw);
     }
 
     @Override

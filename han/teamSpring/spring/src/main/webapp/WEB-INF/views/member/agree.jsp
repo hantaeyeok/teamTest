@@ -26,19 +26,16 @@
         });
     </script>
     <style>
-        .title { padding-top:36px; padding-bottom:20px; }
-        .agree_fr { width: 900px; white-space:pre-wrap; margin: 10px auto;
-            padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
+        .title { padding-top:100px; padding-bottom:20px; }
+		.content {width: 920px; height: auto; margin: 0 auto;}
     </style>
 </head>
 <body>
-<header id="header">
-	<a href="${path1 }">메인으로</a>
-</header>
+<%@ include file="/WEB-INF/views/header.jsp" %> 
 <div class="content container" id="content">
     <h2 class="title">회원 약관 동의</h2>
     <p>${msg }</p>
-    <article class="agree_fr">
+    <article class="agree_fr" style="width: 900px; white-space:pre-wrap; margin: 10px auto; padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; ">
         <h2>제1장 총칙</h2>
 
         제1조(목적) 이 약관은 회사가 온라인으로 제공하는 디지털콘텐츠(이하 "콘텐츠"라고 한다) 및 제반서비스의 이용과 관련하여 회사와 이용자와의 권리, 의무 및 책임사항 등을 규정함을 목적으로 합니다.
@@ -339,7 +336,7 @@
         <input type="checkbox" id="ck_item1" name="ck_item" class="form-check-input">
         <label for="ck_item1" class="form-check-label">약관에 동의</label><br><br>
     </div>
-    <article class="agree_fr">
+    <article class="agree_fr" style="width: 900px; white-space:pre-wrap; margin: 10px auto; padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto;" >
         제1장 총칙
 
         제1조(목적) 이 지침은 「개인정보 보호법」(이하 "법"이라 한다) 제12조제1항에 따른 개인정보의 처리에 관한 기준, 개인정보 침해의 유형 및 예방조치 등에 관한 세부적인 사항을 규정함을 목적으로 한다.
@@ -950,8 +947,6 @@
         }
     </script>
 </div>
-<footer id="footer" class="footer-nav row expanded collapse">
-
-</footer>
+<%@ include file="/WEB-INF/views/footer.jsp" %> 
 </body>
 </html>

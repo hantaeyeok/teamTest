@@ -25,7 +25,13 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member getMember(String id) {
-        return memberDAO.getMember(id);
+        Member member = memberDAO.getMember(id);
+        if (member != null) {
+            System.out.println("데이터베이스에서 조회한 회원 정보: " + member);
+        } else {
+            System.out.println("회원 정보를 찾을 수 없습니다.");
+        }
+        return member;
     }
 
     @Override
@@ -35,15 +41,18 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void insMember(Member member) {
-        member.setPw(pwBCPE.encode(member.getPw()));
+        String rawPassword = member.getPw();
+        String encodedPassword = pwBCPE.encode(rawPassword);
+        member.setPw(encodedPassword);
+        System.out.println("비밀번호 암호화 - 원본: " + rawPassword + ", 암호화: " + encodedPassword);
         memberDAO.insMember(member);
     }
 
+ 
     @Override
-    public void changePw(Member member) {
-        member.setPw(pwBCPE.encode(member.getPw()));
-        memberDAO.changePw(member);
-    }
+	public void changePw(String pw) {
+		memberDAO.changePw(pw);		
+	}
 
     @Override
     public void changeInfo(Member member) {

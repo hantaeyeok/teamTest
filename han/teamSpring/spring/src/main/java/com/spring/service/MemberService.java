@@ -5,12 +5,12 @@ import com.spring.dto.Member;
 
 public interface MemberService {
 	public List<Member> getMemberList();
-    public Member getMember(String id); // userid를 id로 변경
+    public Member getMember(String id); 
     int maxNum();
     void insMember(Member member);
-    void changePw(Member member);
+    void changePw(String pw);
     void changeInfo(Member member);
-    void delMember(String id); // userid를 id로 변경
+    void delMember(String id);
     String loginCheck(Member member);
-    boolean idCheck(String id); // userid를 id로 변경
+    boolean idCheck(String id); 
 }

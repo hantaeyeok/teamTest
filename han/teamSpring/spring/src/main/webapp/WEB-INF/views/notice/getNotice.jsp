@@ -30,15 +30,15 @@
         </tr>
         <tr>
             <th>View Count</th>
-            <td>${notice.vcnt}</td>
+            <td>${notice.visited}</td>
         </tr>
         <tr>
             <th>Resdate</th>
             <td>${notice.resdate}</td>
         </tr>
     </table>
-    <a href="${pageContext.request.contextPath}/notice/editNotice.do?bno=${notice.bno}">Edit</a>
-    <a href="${pageContext.request.contextPath}/notice/deleteNotice.do?bno=${notice.bno}">Delete</a>
-    <a href="${pageContext.request.contextPath}/notice/noticelist.do">Back to List</a>
+    <a href="${path}/notice/editNotice.do?bno=${notice.bno}">Edit</a>
+    <a href="${path}/notice/deleteNotice.do?bno=${notice.bno}">Delete</a>
+    <a href="${path}/notice/noticeList.do">Back to List</a>
 </body>
 </html>

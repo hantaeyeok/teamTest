@@ -7,46 +7,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Qna Details</title>
+    <title>Qna 상세보기 get</title>
 </head>
 <body>
-    <h2>Qna Details</h2>
-    <table border="1">
-        <tr>
-            <th>No</th>
-            <td>${qna.no}</td>
-        </tr>
-        <tr>
-            <th>Plevel</th>
-            <td>${qna.plevel}</td>
-        </tr>
-        <tr>
-            <th>Parno</th>
-            <td>${qna.parno}</td>
-        </tr>
-        <tr>
-            <th>Title</th>
-            <td>${qna.title}</td>
-        </tr>
-        <tr>
-            <th>Content</th>
-            <td>${qna.content}</td>
-        </tr>
-        <tr>
-            <th>Regdate</th>
-            <td>${qna.resdate}</td>
-        </tr>
-        <tr>
-            <th>Visited</th>
-            <td>${qna.visited}</td>
-        </tr>
-        <tr>
-            <th>Author ID</th>
-            <td>${qna.aid}</td>
-        </tr>
-    </table>
-    <a href="${pageContext.request.contextPath}/qna/editQna.do?no=${qna.no}">Edit</a>
-    <a href="${pageContext.request.contextPath}/qna/deleteQna.do?no=${qna.no}">Delete</a>
-    <a href="${pageContext.request.contextPath}/qna/qnalist.do">Back to List</a>
+    <h2>QnA Details</h2>
+    <div>
+        <label>No:</label> ${qna.no}
+    </div>
+    <div>
+        <label>Title:</label> ${qna.title}
+    </div>
+    <div>
+        <label>Content:</label> ${qna.content}
+    </div>
+    <div>
+        <label>Author ID:</label> ${qna.aid}
+    </div>
+    <div>
+        <label>Visited:</label> ${qna.visited}
+    </div>
+    <div>
+        <label>Date:</label><fmt:formatDate value="${qna.resdate}" pattern="yyyy-MM-dd HH:mm:ss" />
+ 		
+    </div>
+    <a href="${path}/qna/upQna.do?no=${qna.no}">Edit</a>
+    <a href="${path}/qna/delQna.do?no=${qna.no}">Delete</a>
+    <a href="${path}/qna/qnalist.do">Back to List</a>
 </body>
 </html>

@@ -10,45 +10,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
-   <!--   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script type="text/javascript" src="http://dmaps.daum.net/map_js_init/v3.js"></script>
-    <style>
-        .material-symbols-outlined {
-          font-variation-settings:
-          'FILL' 0,
-          'wght' 400,
-          'GRAD' 0,
-          'opsz' 30;
-          float: right;
-        }
-        * { margin: 0; padding: 0; }
-        body { width:100%; overflow-x:hidden; }
-        a { text-decoration: none;}
-        .clr-fix { clear:both; }
-        .clr-fix:after { content:""; display:block; width:100%; clear:both;}
-        .wrap { position:relative; }
-        ul {list-style: none;}
-        .hd_wrap {clear: both; width: 100%; position: relative;}
-        .banner {width: auto; height: 100%;}
-        #gnb {clear: both; width: 100%; position: absolute; z-index: 111;}
-        #gnb > .menu > li  { float:left; width: 14.28571428571429%;  text-align: center; } 
-        #gnb a.dp1 { background-color:rgba(16, 29, 99, 0.2); display:block; line-height: 50px; height: 50px;  color:#fff;} 
-        #gnb a.dp2 {color: white; font-weight: 300px;} 
-        #gnb .sub {display: none; line-height: 50px; background-color: rgba(9, 5, 31, 0.562);}
-        #gnb:hover .menu .sub {display: block;}
-        #gnb .menu li:hover .sub {background-color: #fff; }
-        #gnb .menu li:hover a.dp2 {color: black; font-weight: 500px;}
-        #gnb2 {display: none; }
-        #gnb2 {clear: both; width: 100%; position: fixed; z-index: 111;}
-        #gnb2 > .menu > li  { float:left; width: 14.28571428571429%;  text-align: center; } 
-        #gnb2 a.dp1 { background-color:#fff; display:block; line-height: 50px; height: 50px;  color:black;} 
-        #gnb2 li:hover a.dp1 {background-color: rgba(0, 255, 255, 0.13);}
-        #gnb2 .sub {display: none;}
-        #gnb2:hover .menu .sub {display: block;}
-        #gnb2 .menu li:hover .sub {background-color: #ccc;}
-     
-    </style>
+	<link rel="stylesheet" href="${hpath}/resources/css/header.css"/>
     <script>
         window.addEventListener("scroll",function(){
             var scrollposition = window.scrollY;
@@ -67,7 +30,7 @@
         <div class="hd_wrap clr-fix">
             <nav id="gnb" class="clr-fix">
                 <ul class="menu clr-fix">
-                    <li><a class="dp1" href="/"><img class="banner clr-fix" src="https://placehold.it/100x100/333/" alt="배너"></a></li>
+                    <li><a class="dp1" href="${hpath}/home.do"><img class="banner clr-fix" src="${hpath}/resources/img/footerlogo.png" alt="배너"></a></li>
                     <li class="item1">
                         <a href="" class="dp1">사이트소개</a>
                         <ul class="sub">
@@ -75,14 +38,12 @@
                             <li><a href="" class="dp2">서브02</a></li>
                             <li><a href="" class="dp2">서브03</a></li>
                             <li><a href="" class="dp2">서브04</a></li>
-                            <li><a href="" class="dp2">서브05</a></li>
                         </ul>
                     </li>
                     <li class="item2">
-                        <a href="" class="dp1">관광명소</a>
+                        <a href="${hpath}/tour/tour.do" class="dp1">관광명소</a>
                         <ul class="sub">
                             <li><a href="${hpath}/tour/tour.do" class="dp2">속초 관광 명소</a></li>
-                            <li><a href="${hpath}/tour/toursub.do" class="dp2">속초 8경</a></li>
                             <li><a href="${hpath}/tour/toursub.do" class="dp2">속초 축제</a></li>
                             <li><a href="${hpath}/tour/toursub.do" class="dp2">속초 산림</a></li>
                             <li><a href="${hpath}/tour/toursub.do" class="dp2">속초 해변</a></li>
@@ -91,21 +52,20 @@
                     <li class="item3">
                         <a href="" class="dp1">문화예술</a>
                         <ul class="sub">
-                            <li><a href="" class="dp2">서브01</a></li>
-                            <li><a href="" class="dp2">서브02</a></li>
-                            <li><a href="" class="dp2">서브03</a></li>
-                            <li><a href="" class="dp2">서브04</a></li>
-                            <li><a href="" class="dp2">서브05</a></li>
+                            <li><a href="${hpath}/look/art.do" class="dp2">서브01</a></li>
+                            <li><a href="${hpath}/look/museum.do" class="dp2">서브02</a></li>
+                  			<li><a href="" class="dp2"></a>&nbsp;</li>
+                            <li><a href="" class="dp2"></a>&ensp;</li>
+
                         </ul>
                     </li>
                     <li class="item4">
-                        <a href="" class="dp1">숙박/음식점</a>
+                        <a href="${hpath}/food/fmain.do" class="dp1">숙박/음식점</a>
                         <ul class="sub">
-                            <li><a href="" class="dp2">서브01</a></li>
-                            <li><a href="" class="dp2">서브02</a></li>
-                            <li><a href="" class="dp2">서브03</a></li>
-                            <li><a href="" class="dp2">서브04</a></li>
-                            <li><a href="" class="dp2">서브05</a></li>
+                            <li><a href="${hpath}/food/food.do" class="dp2">음식</a></li>
+                            <li><a href="${hpath}/food/hotel.do" class="dp2">숙박</a></li>
+                            <li><a href="${hpath}/food/fmain.do" class="dp2">시장</a></li>
+                            <li><a href="${hpath}/food/fmain.do" class="dp2">미정</a></li>
                         </ul>
                     </li>
                     <li class="item4">
@@ -113,9 +73,9 @@
                         <ul class="sub">
                             <li><a href="${hpath}/notice/noticeList.do" class="dp2">공지사항</a></li>
                             <li><a href="${hpath}/qna/qnaList.do" class="dp2">묻고 답하기</a></li>
-                            <li><a href="" class="dp2">서브03</a></li>
-                            <li><a href="" class="dp2">서브04</a></li>
-                            <li><a href="" class="dp2">서브05</a></li>
+                         	<li><a href="" class="dp2"></a>&nbsp;</li>
+                            <li><a href="" class="dp2"></a>&ensp;</li>
+  
                         </ul>
                     </li>
                     <li>
@@ -134,7 +94,7 @@
         <div class="hd_wrap clr-fix">
             <nav id="gnb2" class="clr-fix">
                 <ul class="menu clr-fix">
-                    <li><a class="dp1" href=""><img class="banner clr-fix" src="https://placehold.it/100x100/333/" alt="배너"></a></li>
+                    <li><a class="dp1" href="${hpath}/home.do"><img class="banner clr-fix" src="${hpath}/resources/img/darklogo.png" alt="배너"></a></li>
                     <li id="dp1li" class="item1">
                         <a href="" class="dp1">사이트소개</a>
                         <ul class="sub">
@@ -142,14 +102,12 @@
                             <li><a href="" class="dp2">서브02</a></li>
                             <li><a href="" class="dp2">서브03</a></li>
                             <li><a href="" class="dp2">서브04</a></li>
-                            <li><a href="" class="dp2">서브05</a></li>
                         </ul>
                     </li>
                     <li id="dp1li" class="item2">
                         <a href="" class="dp1">관광명소</a>
                         <ul class="sub">
                             <li><a href="${hpath}/tour/tour.do" class="dp2">속초 관광 명소</a></li>
-                            <li><a href="${hpath}/tour/toursub.do" class="dp2">속초 8경</a></li>
                             <li><a href="${hpath}/tour/toursub.do" class="dp2">속초 축제</a></li>
                             <li><a href="${hpath}/tour/toursub.do" class="dp2">속초 산림</a></li>
                             <li><a href="${hpath}/tour/toursub.do" class="dp2">속초 해변</a></li>
@@ -158,21 +116,19 @@
                     <li id="dp1li" class="item3">
                         <a href="" class="dp1">문화예술</a>
                         <ul class="sub">
-                            <li><a href="" class="dp2">서브01</a></li>
-                            <li><a href="" class="dp2">서브02</a></li>
+            				<li><a href="${hpath}/look/art.do" class="dp2">서브01</a></li>
+                            <li><a href="${hpath}/look/museum.do" class="dp2">서브02</a></li>
                             <li><a href="" class="dp2">서브03</a></li>
                             <li><a href="" class="dp2">서브04</a></li>
-                            <li><a href="" class="dp2">서브05</a></li>
                         </ul>
                     </li>
                     <li id="dp1li" class="item4">
-                        <a href="" class="dp1">숙박/음식점</a>
+                       <a href="${hpath}/food/fmain.do" class="dp1">숙박/음식점</a>
                         <ul class="sub">
-                            <li><a href="" class="dp2">서브01</a></li>
-                            <li><a href="" class="dp2">서브02</a></li>
-                            <li><a href="" class="dp2">서브03</a></li>
-                            <li><a href="" class="dp2">서브04</a></li>
-                            <li><a href="" class="dp2">서브05</a></li>
+                          	<li><a href="${hpath}/food/food.do" class="dp2">음식</a></li>
+                            <li><a href="${hpath}/food/hotel.do" class="dp2">숙박</a></li>
+                            <li><a href="${hpath}/food/fmain.do" class="dp2">시장</a></li>
+                            <li><a href="" class="dp2"></a>&nbsp;</li>
                         </ul>
                     </li>
                     <li id="dp1li" class="item4">
@@ -180,9 +136,8 @@
                         <ul class="sub">
                       		<li><a href="${hpath}/notice/noticeList.jsp" class="dp2">공지사항</a></li>
                             <li><a href="${hpath}/qna/qnaList.jsp" class="dp2">묻고 답하기</a></li>
-                            <li><a href="" class="dp2">서브03</a></li>
-                            <li><a href="" class="dp2">서브04</a></li>
-                            <li><a href="" class="dp2">서브05</a></li>
+                            <li><a href="" class="dp2"></a>&nbsp;</li>
+                            <li><a href="" class="dp2"></a>&ensp;</li>
                         </ul>
                     </li>
                     <li>
@@ -202,7 +157,6 @@
         <div id="">
             <!-- login 할 경우 로그아웃으로 변경 -->
             <c:if test="${not empty sid}">
-                <h2 style="text-align:center;">${sname} 님 환영합니다.</h2>
             </c:if>
             <c:if test="${empty sid}">
                 <!-- <h2 style="text-align:center;">모든 서비스를 활용시 로그인 요망</h2> --> <!--   -->

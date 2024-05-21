@@ -1,27 +1,26 @@
 package com.spring.dao;
 
 import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.spring.dto.Qna;
 
-@Repository
+@Repository 
 public class QnaDAOImpl implements QnaDAO {
 
     @Autowired
     private SqlSession sqlSession;
 
-    @Override
-    public List<Qna> getQnaList() {
-        return sqlSession.selectList("qna.getQnaList");
+
+	@Override
+    public void insQna(Qna qna) {
+        sqlSession.insert("insQna", qna);
     }
 
     @Override
-    public List<Qna> getRecentQnaList() { 
-        return sqlSession.selectList("qna.getRecentQnaList");
+    public List<Qna> qnaList() {
+        return sqlSession.selectList("qna.qnaList");
     }
 
     @Override
@@ -30,27 +29,12 @@ public class QnaDAOImpl implements QnaDAO {
     }
 
     @Override
-    public void insertQna(Qna qna) {
-        sqlSession.insert("qna.insertQna", qna);
+    public void upQna(Qna qna) {
+        sqlSession.update("qna.upQna", qna);
     }
 
     @Override
-    public void updateQna(Qna qna) {
-        sqlSession.update("qna.updateQna", qna);
-    }
-
-    @Override
-    public void deleteQna(int no) {
-        sqlSession.delete("qna.deleteQna", no);
-    }
-
-    @Override
-    public void updateParnoForQna(int no) {
-        sqlSession.update("qna.updateParnoForQna", no);
-    }
-
-    @Override
-    public void incrementVisited(int no) {
-        sqlSession.update("qna.incrementVisited", no);
+    public void delQna(int no) {
+        sqlSession.delete("qna.delQna", no);
     }
 }

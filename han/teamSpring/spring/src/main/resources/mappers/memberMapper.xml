@@ -3,11 +3,11 @@
 "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
-    <select id="getMemberList" resultType="com.spring.dto.Member">
+<select id="getMemberList" resultType="com.spring.dto.Member">
         SELECT id, pw, name, birth, gender, postcode, addr FROM member
     </select>
 
-    <select id="getMember" parameterType="String" resultType="com.spring.dto.Member">
+    <select id="getMember" parameterType="string" resultType="com.spring.dto.Member">
         SELECT id, pw, name, birth, gender, postcode, addr FROM member WHERE id = #{id}
     </select>
 
@@ -28,18 +28,13 @@
         UPDATE member SET name = #{name}, birth = #{birth}, gender = #{gender}, postcode = #{postcode}, addr = #{addr} WHERE id = #{id}
     </update>
 
-    <delete id="delMember" parameterType="String">
+    <delete id="delMember" parameterType="string">
         DELETE FROM member WHERE id = #{id}
     </delete>
 
     <select id="loginCheck" parameterType="com.spring.dto.Member" resultType="String">
-        SELECT id FROM member WHERE id = #{id} AND pw = #{pw}
+        SELECT id FROM member WHERE id = #{id}
     </select>
-
-    <insert id="registerMember" parameterType="com.spring.dto.Member">
-        INSERT INTO member (id, pw, name, birth, gender, postcode, addr)
-        VALUES (#{id}, #{pw}, #{name}, #{birth}, #{gender}, #{postcode}, #{addr})
-    </insert>
 
     <select id="idCheck" parameterType="String" resultType="int">
         SELECT COUNT(*) FROM member WHERE id = #{id}

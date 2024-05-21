@@ -34,6 +34,8 @@
 	<resources mapping="/ajax/**" location="/WEB-INF/views/ajax" />
 	<resources mapping="/img/**" location="/WEB-INF/views/img" />
 	<resources mapping="/css/**" location="/WEB-INF/views/css" />
+	<resources mapping="/food/**" location="/WEB-INF/views/food" />
+	<resources mapping="/look/**" location="/WEB-INF/views/look" />
 	
 	<!-- 리졸버에 대한 접두사와 접미사 설정 -->
 	<!-- @Controller가 렌더링하기 위해 선택한 뷰를 /WEB-INF/views 디렉터리의 .jsp 리소스로 확인합니다. -->

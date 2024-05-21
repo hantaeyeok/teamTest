@@ -12,29 +12,36 @@
 <body>
     <h2>Qna List</h2>
     <table border="1">
-        <tr>
+       <tr>
             <th>No</th>
             <th>Title</th>
-            <th>Author ID</th>
+            <th>Content</th>
+            <th>Date</th>
             <th>Visited</th>
-            <th>Regdate</th>
+            <th>Author</th>
             <th>Actions</th>
         </tr>
         <c:forEach var="qna" items="${qnaList}">
             <tr>
                 <td>${qna.no}</td>
-                <td><a href="${path}/qna/getQna.do?no=${qna.no}">${qna.title}</a></td>
-                <td>${qna.aid}</td>
-                <td>${qna.visited}</td>
-                <td>${qna.resdate}</td>
                 <td>
-                    <a href="${path}/qna/editQna.do?no=${qna.no}">Edit</a>
-                    <a href="${path}/qna/deleteQna.do?no=${qna.no}">Delete</a>
-                    <a href="${path}/qna/insertAnswerQna.do?parno=${qna.parno}">Answer</a>
+                    <c:forEach var="i" begin="1" end="${qna.plevel}">
+                        <span class="indent"></span>
+                    </c:forEach>
+                    <a href="${path}/qna/getQna.do?no=${qna.no}">${qna.title}</a>
+                </td>
+                <td>${qna.content}</td>
+                <td>${qna.resdate}</td>
+                <td>${qna.visited}</td>
+                <td>${qna.aid}</td>
+                <td>
+                    <a href="${path}/qna/upQna.do?no=${qna.no}">Edit</a>
+                    <a href="${path}/qna/delQna.do?no=${qna.no}">Delete</a>
                 </td>
             </tr>
         </c:forEach>
     </table>
-    <a href="${path}/qna/insertQna.do">Insert Qna</a>
+    <a href="${path}/qna/insQuestion.do">Insert Qna</a>
+    <a href="${path}/">home</a>
 </body>
 </html>
