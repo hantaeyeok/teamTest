@@ -1,5 +1,0 @@
-INDEX VERSION 1.131
-D:\hty\teamTest\han\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1866062029.index
-\team01\src
-D:\hty\teamTest\han\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\585445112.index
-\team01\src

@@ -41,7 +41,12 @@ public class MemberController {
     }
 
     @PostMapping("loginPro.do")
+<<<<<<< HEAD
     public String loginPro(@RequestParam("id") String id, @RequestParam("pw") String pw, Model model, RedirectAttributes rttr, HttpServletRequest request) {
+=======
+    public String loginPro(@RequestParam("id") String id, @RequestParam("pw") String pw, Model model, RedirectAttributes redirectAtt) {
+        // 사용자의 ID로 회원 정보 조회
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
         Member member = memberService.getMember(id);
         if (member != null) {
             System.out.println("저장된 PW: " + member.getPw());
@@ -49,19 +54,33 @@ public class MemberController {
             System.out.println("회원 정보를 찾을 수 없습니다.");
         }
 
+<<<<<<< HEAD
         boolean loginSuccess = member != null && pwBCPE.matches(pw, member.getPw());
+=======
+        // 입력된 비밀번호와 저장된 비밀번호 비교
+        boolean loginSuccess = pwBCPE.matches(pw, member.getPw());
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
         System.out.println("로그인 시도 - 입력된 ID: " + id + ", 입력된 PW: " + pw + ", 저장된 PW: " + member.getPw() + ", 비교 결과: " + loginSuccess);
 
         if (loginSuccess) {
+<<<<<<< HEAD
             HttpSession session = request.getSession(false);
             if (session != null) {
                 session.invalidate();
             }
             session = request.getSession(true);
+=======
+            // 세션 설정
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
             session.setAttribute("member", member);
-            session.setAttribute("sid", id);
+            session.setAttribute("id", id);
+            System.out.println("로그인 성공: " + id); // 로그 추가
             model.addAttribute("msg", "로그인 성공");
+<<<<<<< HEAD
             return "redirect:/";
+=======
+            return "redirect:/home.jsp"; // 로그인 성공 시 홈으로 리다이렉트
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
         } else {
             rttr.addAttribute("msg", "로그인 실패: 비밀번호가 일치하지 않습니다.");
             return "redirect:login.do";
@@ -111,7 +130,11 @@ public class MemberController {
         String id = request.getParameter("id");
         Member member = memberService.getMember(id);
         boolean result;
+<<<<<<< HEAD
         if (member!= null) {
+=======
+        if (member != null) {
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
             result = false;
         } else {
             result = true;
@@ -147,6 +170,7 @@ public class MemberController {
     public String myUpdatePro(HttpServletRequest request, Model model, RedirectAttributes rttr) {
         Member member = new Member();
         member.setId(request.getParameter("id"));
+<<<<<<< HEAD
 
         String rawPassword = request.getParameter("pw");
         System.out.println("비밀번호 원본: " + rawPassword);
@@ -155,6 +179,9 @@ public class MemberController {
         System.out.println("비밀번호 암호화 - 원본: " + rawPassword + ", 암호화: " + encodedPassword);
 
         member.setPw(encodedPassword); // 비밀번호 암호화
+=======
+        member.setPw(pwBCPE.encode(request.getParameter("pw"))); // 비밀번호 암호화
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
         member.setName(request.getParameter("name"));
         member.setBirth(request.getParameter("birth"));
         member.setGender(request.getParameter("gender"));

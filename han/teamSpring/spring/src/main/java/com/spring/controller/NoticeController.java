@@ -43,8 +43,14 @@ public class NoticeController {
 
     @PostMapping("insertproNotice.do")
     public String insertNotice(Notice notice, Model model) {
+        // 서버 측에서 날짜를 설정합니다.
+        notice.setResdate(new Date());
         noticeService.insertNotice(notice);
+<<<<<<< HEAD
         return "redirect:noticeList.do";
+=======
+        return "redirect:noticeList.do";  // 올바른 경로로 수정
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
     }
 
     @GetMapping("editNotice.do")

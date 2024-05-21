@@ -117,13 +117,21 @@
 <body>
         <div class="breadcrumb">
             <p>
+<<<<<<< HEAD
                 <a href="${hpath }/home.jsp">홈</a><span>숙박/음식점</span>
+=======
+                <a href="${path1 }/home.jsp">홈</a><span>숙박/음식점</span>
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
             </p>
         </div>
     <section class="page" id="page1">
     <ul class="grid">
         <li id="item1" class="box1">
+<<<<<<< HEAD
             <div class="box"><a href="${hpath }/food/food.do"><img src="${hpath}/resources/img/image-sub/sub-food.jpg" alt="음식점 정보"></a></div>
+=======
+            <div class="box"><a href="${hpath }/food/food.do"><img src="${hpath }/resources/img/image-sub/sub-food.jpg" alt="음식점 정보"></a></div>
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
         </li>
         <li id="item2" class="box1">
             <div class="box"><a href="page3.html"><img src="${hpath }/resources/img/image-sub/sub-house.jpg" alt="숙소정보"></a></div>

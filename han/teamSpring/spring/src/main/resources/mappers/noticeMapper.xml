@@ -12,7 +12,11 @@
   </select>
 
 <insert id="insertNotice" parameterType="com.spring.dto.Notice">
+<<<<<<< HEAD
     INSERT INTO notice (bno, title, content, author, visited, resdate) VALUES (notice_seq.NEXTVAL, #{title}, #{content}, #{author}, #{visited}, #{resdate})
+=======
+    INSERT INTO notice (bno, title, content, author, vcnt, resdate) VALUES (notice_seq.NEXTVAL, #{title}, #{content}, #{author}, #{vcnt}, #{resdate})
+>>>>>>> cc09d531812619a8208e57fdc60a6f23360cddfe
 </insert>
 
 
