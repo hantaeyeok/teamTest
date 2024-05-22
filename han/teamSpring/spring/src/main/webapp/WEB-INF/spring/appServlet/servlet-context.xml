@@ -54,7 +54,15 @@
 		<beans:constructor-arg value="D:\hty\teamTest\han\teamSpring\spring\src\main\webapp\resources\upload"></beans:constructor-arg>
 	</beans:bean>
 	
+	<!-- Spring Validator 지정 -->
+	<annotation-driven validator="validator"/>
+	<beans:bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+	
 	<!-- 기본 메인 패키지 및 컨트롤러 패키지 설정 -->
 	<context:component-scan base-package="com.spring" />
+	
+	<!-- BCryptPasswordEncoder 빈 설정 -->
+    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
 
 </beans:beans>

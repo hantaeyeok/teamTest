@@ -6,13 +6,9 @@ import com.spring.dto.Member;
 
 public interface MemberDAO {
 	public List<Member> getMemberList();
-	public Member getMember(String id);  // userid를 id로 변경
-    int maxNum();
+	public Member getMember(String id);
     void insMember(Member member);
-    void changePw(String pw);
-    void changeInfo(Member member);
-    void delMember(String id);  // userid를 id로 변경
-    
-    String loginCheck(Member member);
-    boolean idCheck(String id);  // userid를 id로 변경
+    void upPw(String id,String pw);
+    void upInfo(Member member);
+    void delMember(String id);  
 }

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,14 +25,11 @@ import com.spring.service.MemberService;
 @RequestMapping("/member/")
 public class MemberController {
 
-    @Autowired
+	@Autowired
     private MemberService memberService;
 
     @Autowired
     private HttpSession session;
-
-    @Autowired
-    private BCryptPasswordEncoder pwBCPE;
 
     @GetMapping("login.do")
     public String login(Model model) {
@@ -43,14 +39,19 @@ public class MemberController {
     @PostMapping("loginPro.do")
     public String loginPro(@RequestParam("id") String id, @RequestParam("pw") String pw, Model model, RedirectAttributes rttr, HttpServletRequest request) {
         Member member = memberService.getMember(id);
-        if (member != null) {
-            System.out.println("저장된 PW: " + member.getPw());
-        } else {
+
+        if (member == null) {
+            rttr.addFlashAttribute("msg", "존재하지 않는 아이디입니다.");
             System.out.println("회원 정보를 찾을 수 없습니다.");
+            return "redirect:login.do";
         }
 
-        boolean loginSuccess = member != null && pwBCPE.matches(pw, member.getPw());
-        System.out.println("로그인 시도 - 입력된 ID: " + id + ", 입력된 PW: " + pw + ", 저장된 PW: " + member.getPw() + ", 비교 결과: " + loginSuccess);
+        // 로그인 시도 로그 추가
+        System.out.println("로그인 시도 - 입력된 비밀번호: " + pw);
+        System.out.println("로그인 시도 - 데이터베이스의 암호화된 비밀번호: " + member.getPw());
+
+        boolean loginSuccess = memberService.checkPassword(pw, member.getPw());
+        System.out.println("비밀번호 비교 결과: " + loginSuccess);
 
         if (loginSuccess) {
             HttpSession session = request.getSession(false);
@@ -63,10 +64,11 @@ public class MemberController {
             model.addAttribute("msg", "로그인 성공");
             return "redirect:/";
         } else {
-            rttr.addAttribute("msg", "로그인 실패: 비밀번호가 일치하지 않습니다.");
+            rttr.addFlashAttribute("msg", "로그인 실패: 비밀번호가 일치하지 않습니다.");
             return "redirect:login.do";
         }
     }
+
     @GetMapping("join.do")
     public String join(@ModelAttribute("member") Member member, Model model) {
         model.addAttribute("Member", member);
@@ -78,44 +80,34 @@ public class MemberController {
         Member member = new Member();
         member.setId(request.getParameter("id"));
 
-        // 원본 비밀번호를 로그에 출력
         String rawPassword = request.getParameter("pw");
-        System.out.println("비밀번호 원본: " + rawPassword);
-        
+        member.setPw(rawPassword);
 
-        // 암호화된 비밀번호 설정
-        member.setPw(pwBCPE.encode(request.getParameter("pw")));
         member.setName(request.getParameter("name"));
 
-        // 생년월일 설정
         String birth = request.getParameter("year") + "-" + request.getParameter("month") + "-" + request.getParameter("day");
         member.setBirth(birth);
         member.setGender(request.getParameter("gender"));
         member.setPostcode(request.getParameter("postcode"));
         member.setAddr(request.getParameter("addr"));
 
-        // 회원 정보 저장
         memberService.insMember(member);
-        model.addAttribute("msg", "회원가입이 완료되었습니다. 다시 로그인 해주세요.");
-        return "redirect:/";
+
+        rttr.addFlashAttribute("msg", "회원가입이 완료되었습니다. 다시 로그인 해주세요.");
+        return "redirect:/member/login.do";
     }
 
     @RequestMapping("agree.do")
     public String agreeForm(Model model, RedirectAttributes rttr) {
-    	rttr.addAttribute("msg", "회원 약관에 동의하시기 바랍니다.");
+        rttr.addAttribute("msg", "회원 약관에 동의하시기 바랍니다.");
         return "member/agree";
     }
- 
+
     @PostMapping("idCheck.do")
     public void idCheck(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
         String id = request.getParameter("id");
         Member member = memberService.getMember(id);
-        boolean result;
-        if (member!= null) {
-            result = false;
-        } else {
-            result = true;
-        }
+        boolean result = (member == null);
         JSONObject json = new JSONObject();
         json.put("result", result);
         PrintWriter out = response.getWriter();
@@ -125,7 +117,7 @@ public class MemberController {
     @RequestMapping("logout.do")
     public String logout(HttpSession session, Model model) {
         session.invalidate();
-        model.addAttribute("message", "로그아웃");
+        model.addAttribute("message", "로그아웃 되었습니다.");
         return "redirect:/member/login.do";
     }
 
@@ -149,21 +141,21 @@ public class MemberController {
         member.setId(request.getParameter("id"));
 
         String rawPassword = request.getParameter("pw");
-        System.out.println("비밀번호 원본: " + rawPassword);
+        member.setPw(rawPassword);
 
-        String encodedPassword = pwBCPE.encode(rawPassword);
-        System.out.println("비밀번호 암호화 - 원본: " + rawPassword + ", 암호화: " + encodedPassword);
-
-        member.setPw(encodedPassword); // 비밀번호 암호화
         member.setName(request.getParameter("name"));
         member.setBirth(request.getParameter("birth"));
         member.setGender(request.getParameter("gender"));
         member.setPostcode(request.getParameter("postcode"));
         member.setAddr(request.getParameter("addr1") + " " + request.getParameter("addr2"));
-        memberService.changeInfo(member);
-        model.addAttribute("msg", "회원 정보가 업데이트되었습니다. 다시 로그인 해주세요.");
+        memberService.upInfo(member);
+
+        // 회원 정보 업데이트 로그 추가
+        System.out.println("회원 정보 업데이트 - 저장된 회원 정보: " + member.toString());
+
+        rttr.addFlashAttribute("msg", "회원 정보가 업데이트되었습니다. 다시 로그인 해주세요.");
         session.invalidate();
-        return "redirect:/";
+        return "redirect:/member/login.do";
     }
 
     @GetMapping("memberDelete.do")
